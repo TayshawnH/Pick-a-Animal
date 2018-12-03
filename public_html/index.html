@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Animals</title>
+
+
+        <script src="Animal.js"></script>
+
+    </head>
+    <body>
+
+        <h1>Choose an Animal</h1>
+        <h3>My Favorite Animals</h3>
+        <p> A list that display types of animals. When the user selects the animal of their choice, 
+            it will print out to the right of the select box, a description of that animal will be displayed. </p>
+        <hr  />
+        <script type="text/javascript">
+            function addElement() {
+                var div = document.createElement("div");
+                div.setAttribute("div", "tayDiv");
+                div.className = "mdiv";
+                document.body.appendChild(div);
+                
+                var s1 = document.createElement("TextLabel");  
+                
+                var s2 = document.createElement('select');
+                s2.id = "pick1";
+                s2.addEventListener("click", labelChange);
+                
+                var animalsName = document.createElement("TextLabel");
+                animalsName.textContent = 'Select an Animal:';
+                div.appendChild(animalsName);
+                div.appendChild(s2);
+                
+                var textLabel = document.createElement("TextLabel");
+                textLabel.textContent = ' Description: ';
+                div.appendChild(textLabel);
+                s1.id = "s1";
+                div.appendChild(s1);
+            }
+            window.onload = addElement();
+            var output = document.getElementById('output');
+            
+            var noAnimalInput = new AnimalType('', '');
+            
+            var Lion = new AnimalType('Lion', 'The almighty Kings of the Jungle. Lions have strong, compact bodies and powerful forelegs, teeth and jaws for pulling down and killing prey. Their coats are yellow-gold,\n\
+                and adult males have shaggy manes that range in color from blond to reddish-brown to black.');
+    
+            var Tiger = new AnimalType('Tiger', 'The tiger (Panthera tigris) is the largest cat species, most recognizable for its pattern of dark vertical \n\
+                stripes on reddish-orange fur with a lighter underside.');
+            
+            var Bear = new AnimalType('Bear', 'The Bear is a well-known animal. It is a big animal with either lighter or darker brown fur. Tail is short and not well seen among its fur. The young have a white collar around their neck, sometimes the adults also still have it. \n\
+                Bears walk like humans do on their soles. It has dull teeth as all these who eat both plants and animals.');
+            
+            var Monkey = new AnimalType('Monkey', 'Monkeys live all over the world and come in various shapes, sizes and colors. As one of our closest relatives, these mammals are very intelligent and have opposable thumbs, \n\
+                allowing them to use tools and play games.');
+    
+            var Horse = new AnimalType('Horse', 'Horses are four legged animals that have had a long relationship with humans. They were once a major form of transportation for humans. They also performed many jobs for humans over the years. \n\
+                The scientific name for horse is Equus ferus caballus.');
+            
+            var Panda = new AnimalType('Panda', 'Giant pandas have a distinctive black and white coat, with black fur around their eyes and on their ears, muzzle, legs and shoulders. \n\
+                Their thick, wooly coat helps to keep them warm in their cool mountain homes.');
+            
+            var Giraffe = new AnimalType('Giraffe', 'Giraffes are easy to identify with their long necks, skinny legs and distinctive spotted markings. \n\
+                They are the tallest mammals on earth. The approximate weight of giraffes is approximately 2,000 - 3,000 lbs for males; females weigh less than males.');
+            
+            var Turtle = new AnimalType('Turtle', 'Turtles are reptiles with hard shells that protect them from predators. ... Turtles spend most of their lives in water. \n\
+                They are adapted for aquatic life, with webbed feet or flippers and a streamlined body. Sea turtles rarely leave the ocean, except to lay eggs in the sand.');
+            
+            var Elephant = new AnimalType('Elephant', 'Elephants are the largest land animals on Earth. They have characteristic long noses, or trunks; large, floppy ears; and wide, thick legs.\n\
+                There are two species of elephant. The Asian elephant and the African elephant live on separate continents and have many unique features.');
+            
+            var Dog = new AnimalType('Dog', 'Dogs (Canis lupus familiaris) are domesticated mammals, not natural wild animals. They were originally bred from wolves. They have been bred by humans for a long time, \n\
+                and were the first animals ever to be domesticated. They are a popular pet because they are usually playful, friendly, loyal and listen to humans. Hence man bestfriend.');
+            
+            var selection = document.getElementById('pick1');
+            var description = document.getElementById('s1');
+            var animalList = [noAnimalInput, Lion, Tiger, Bear, Monkey, Horse, Panda, Giraffe, Turtle, Elephant, Dog];
+            for (var i = 0; i < animalList.length; i++) {
+                var tay = animalList[i];
+                var shawn = document.createElement("option");
+                shawn.textContent = tay.Name;
+                shawn.value = tay.Description;
+                selection.appendChild(shawn);
+            }
+            function labelChange() {
+                var e = document.getElementById("pick1");
+                var desc = e.value;
+                document.getElementById('s1').innerHTML = desc;
+            }
+        </script>
+        <hr />
+    </body>
+</html>
